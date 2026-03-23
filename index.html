@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebab Platformer - A Delicious Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="1200" height="800"></canvas>
+        <div id="hud">
+            <div id="levelInfo">Level <span id="levelNumber">1</span> / 15</div>
+            <div id="foodProgress">
+                <div id="foodBar" class="progress-bar">
+                    <div id="foodFill" class="progress-fill"></div>
+                </div>
+                <div id="foodText">Food: <span id="foodCount">0</span> / <span id="foodMax">5</span></div>
+            </div>
+            <div id="moneyInfo">💰 <span id="money">0</span></div>
+        </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="mainMenu" class="modal">
+        <div class="modal-content">
+            <h1>🍢 Kebab Platformer</h1>
+            <p>Help a kebab stick collect delicious ingredients and become the tastiest meal!</p>
+            <button onclick="game.startGame()">Start Game</button>
+            <button onclick="game.openShop()">Shop</button>
+        </div>
+    </div>
+
+    <!-- Shop Modal -->
+    <div id="shopModal" class="modal">
+        <div class="modal-content">
+            <h2>Skin Shop</h2>
+            <div id="skinGrid" class="skin-grid"></div>
+            <button onclick="game.closeShop()" class="back-button">Back to Menu</button>
+        </div>
+    </div>
+
+    <!-- Level Complete Modal -->
+    <div id="levelCompleteModal" class="modal">
+        <div class="modal-content level-complete">
+            <h2>Level Complete!</h2>
+            <div id="ratingDisplay"></div>
+            <div id="rewardInfo"></div>
+            <button onclick="game.nextLevel()">Next Level</button>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2>Game Complete! 🎉</h2>
+            <p id="finalStats"></p>
+            <button onclick="game.backToMenu()">Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
